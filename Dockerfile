@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM busybox:latest
 MAINTAINER etworker
 
 ADD idxgen_server_linux_64bit /idxgen_server
