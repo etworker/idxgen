@@ -6,7 +6,9 @@ If you want a unique id, the traditional way is to generate a GUID such as `4394
 
 GUID is good, but it cost 36 chars to save one GUID.
 
-idx is one way to convert `43944275-7a4c-4bc6-4b47-5f2dc9e2f97e` to `4lISTtOe` with some loss.
+idx is one way to map `43944275-7a4c-4bc6-4b47-5f2dc9e2f97e` to `4lISTtOe` with some loss.
+
+idx only cost 8 chars to save, so it is better for some services which need short unique id.
 
 ## Algorithm
 
