@@ -38,4 +38,4 @@ I have tested keep generate idx for 10,000,000 times, only 1 time duplicated. Bu
 
 ## Example
 
-I have deployed this service at [here](http://idxgen-etworker.alaudacn.me:49662/), every time you refresh it, you will get an idx generated, please check it.
+I have deployed this service at [here](http://journeyonmyway-idxgen.daoapp.io/), every time you refresh it, you will get an idx generated, please check it.
