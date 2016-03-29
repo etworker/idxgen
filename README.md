@@ -46,7 +46,7 @@ $ go get github.com/nu7hatch/gouuid
 
 ### 2. Test `idxgen`
 
-Go to `idxgen` folder and run 'go test', result will like this:
+Go to `idxgen` folder and run `go test`, result will like this:
 
 ```
 close chIdx
@@ -57,7 +57,7 @@ ok      idxgen  0.375s
 
 ### 3. Run HTTP service
  
-Go to `idxgen_demo` folder and run 'go run main.go`, then open browser with the address is `IP`:5678, e.g. `http://localhost:5678`
+Go to `idxgen_demo` folder and run `go run main.go`, then open browser with the address is `IP`:5678, e.g. `http://localhost:5678`
 
 ## Example
 
