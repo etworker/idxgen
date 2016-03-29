@@ -38,13 +38,13 @@ I have tested keep generate idx for 10,000,000 times, only 1 time duplicated. Bu
 
 ## Usage
 
-1. Install `gouuid` for generating uuid.
+### 1. Install `gouuid` for generating uuid.
 
 ```shell
 $ go get github.com/nu7hatch/gouuid
 ```
 
-2. Test `idxgen`
+### 2. Test `idxgen`
 
 Go to `idxgen` folder and run 'go test', result will like this:
 
@@ -55,7 +55,7 @@ PASS
 ok      idxgen  0.375s
 ```
 
-3. Run HTTP service
+### 3. Run HTTP service
  
 Go to `idxgen_demo` folder and run 'go run main.go`, then open browser with the address is `IP`:5678, e.g. `http://localhost:5678`
 
