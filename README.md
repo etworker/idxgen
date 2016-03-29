@@ -36,6 +36,29 @@ So if you need strict unique id, just try GUID, or implement your own function n
 
 I have tested keep generate idx for 10,000,000 times, only 1 time duplicated. But I suggest user to implement the `IsUniqueIdx()` function for sure.
 
+## Usage
+
+1. Install `gouuid` for generating uuid.
+
+```shell
+$ go get github.com/nu7hatch/gouuid
+```
+
+2. Test `idxgen`
+
+Go to `idxgen` folder and run 'go test', result will like this:
+
+```
+close chIdx
+test finished
+PASS
+ok      idxgen  0.375s
+```
+
+3. Run HTTP service
+ 
+Go to `idxgen_demo` folder and run 'go run main.go`, then open browser with the address is `IP`:5678, e.g. `http://localhost:5678`
+
 ## Example
 
-I have deployed this service at [here](http://journeyonmyway-idxgen.daoapp.io/), every time you refresh it, you will get an idx generated, please check it.
+I have deployed this service at [here](http://52.79.80.222:5678), every time you refresh it, you will get an idx generated, please check it.
