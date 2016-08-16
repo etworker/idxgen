@@ -12,7 +12,7 @@ import (
 
 func TestIdxgen(t *testing.T) {
 	ig := NewIdxGen()
-	n := 1000
+	n := 1000000
 	m := make(map[string]int, n)
 	for i := 0; i < n; i++ {
 		k := ig.GenIdx()
