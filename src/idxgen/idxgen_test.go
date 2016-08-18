@@ -8,22 +8,66 @@ package idxgen
 import (
 	"fmt"
 	"testing"
+	"time"
 )
 
-func TestIdxgen(t *testing.T) {
-	ig := NewIdxGen()
-	n := 1000000
+const (
+	n = 1000000
+)
+
+func TestBaseIdxGen(t *testing.T) {
+	fmt.Println("test BaseIdxGen begin")
+
+	ig := NewIdxGen(&BaseIdxGen{})
+	t1 := time.Now()
 	m := make(map[string]int, n)
 	for i := 0; i < n; i++ {
-		k := ig.GenIdx()
-		//fmt.Println(k)
+		k := GenIdx(ig)
 		_, prs := m[k]
 		if prs {
 			fmt.Println("!!!") // duplicate!
 		}
 		m[k]++
 	}
+	fmt.Println("time:", time.Now().Sub(t1))
+	Stop(ig)
+	fmt.Println("test BaseIdxGen finished")
+}
 
-	ig.Stop()
-	fmt.Println("test finished")
+func TestMapIdxGen(t *testing.T) {
+	fmt.Println("test MapIdxGen begin")
+
+	ig := NewIdxGen(&MapIdxGen{})
+	t1 := time.Now()
+	m := make(map[string]int, n)
+	for i := 0; i < n; i++ {
+		k := GenIdx(ig)
+		_, prs := m[k]
+		if prs {
+			fmt.Println("!!!") // duplicate!
+		}
+		m[k]++
+	}
+	fmt.Println("time:", time.Now().Sub(t1))
+	Stop(ig)
+	fmt.Println("test MapIdxGen finished")
+}
+
+func TestBFIdxGen(t *testing.T) {
+	fmt.Println("test BFIdxGen begin")
+
+	ig := NewIdxGen(&BFIdxGen{})
+	t1 := time.Now()
+	m := make(map[string]int, n)
+	for i := 0; i < n; i++ {
+		k := GenIdx(ig)
+		_, prs := m[k]
+		if prs {
+			fmt.Println("!!!") // duplicate!
+		}
+		m[k]++
+	}
+	fmt.Println("time:", time.Now().Sub(t1))
+	Stop(ig)
+	fmt.Println("test BFIdxGen finished")
 }
