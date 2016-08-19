@@ -12,14 +12,14 @@ import (
 )
 
 const (
-	n = 1000000
+	n = 10000
 )
 
-func TestBaseIdxGen(t *testing.T) {
-	fmt.Println("test BaseIdxGen begin")
+func IdxGenTest(iig IIdxGen, n int) {
+	fmt.Println("Begin test:", iig.GetName())
 
-	ig := NewIdxGen(&BaseIdxGen{})
-	t1 := time.Now()
+	ig := NewIdxGen(iig)
+	t0 := time.Now()
 	m := make(map[string]int, n)
 	for i := 0; i < n; i++ {
 		k := GenIdx(ig)
@@ -29,45 +29,24 @@ func TestBaseIdxGen(t *testing.T) {
 		}
 		m[k]++
 	}
-	fmt.Println("time:", time.Now().Sub(t1))
+	fmt.Println("Cost time:", time.Now().Sub(t0))
 	Stop(ig)
-	fmt.Println("test BaseIdxGen finished")
+
+	fmt.Println("End test:", iig.GetName())
+}
+
+func TestBaseIdxGen(t *testing.T) {
+	IdxGenTest(&BaseIdxGen{}, n)
 }
 
 func TestMapIdxGen(t *testing.T) {
-	fmt.Println("test MapIdxGen begin")
+	IdxGenTest(&MapIdxGen{}, 10000)
+}
 
-	ig := NewIdxGen(&MapIdxGen{})
-	t1 := time.Now()
-	m := make(map[string]int, n)
-	for i := 0; i < n; i++ {
-		k := GenIdx(ig)
-		_, prs := m[k]
-		if prs {
-			fmt.Println("!!!") // duplicate!
-		}
-		m[k]++
-	}
-	fmt.Println("time:", time.Now().Sub(t1))
-	Stop(ig)
-	fmt.Println("test MapIdxGen finished")
+func TestMap2IdxGen(t *testing.T) {
+	IdxGenTest(&Map2IdxGen{}, 10000)
 }
 
 func TestBFIdxGen(t *testing.T) {
-	fmt.Println("test BFIdxGen begin")
-
-	ig := NewIdxGen(&BFIdxGen{})
-	t1 := time.Now()
-	m := make(map[string]int, n)
-	for i := 0; i < n; i++ {
-		k := GenIdx(ig)
-		_, prs := m[k]
-		if prs {
-			fmt.Println("!!!") // duplicate!
-		}
-		m[k]++
-	}
-	fmt.Println("time:", time.Now().Sub(t1))
-	Stop(ig)
-	fmt.Println("test BFIdxGen finished")
+	IdxGenTest(&BFIdxGen{}, 10000)
 }
